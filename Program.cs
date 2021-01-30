@@ -27,10 +27,12 @@ namespace ArrayTestsQ1_2021
 
             RotateArrayLeft.RotateArrayLeft manager = new RotateArrayLeft.RotateArrayLeft(rotations, inputArray);
             var rotList = manager.getRotatedArray();
-            for(int x=0; x < rotList.Length; x++)
+            for (int x = 0; x < rotList.Length; x++)
             {
                 Console.Write(rotList[x] + " ");
             }
+        }
+
 
 
     }
