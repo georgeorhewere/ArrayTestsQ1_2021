@@ -8,7 +8,7 @@ namespace ArrayTestsQ1_2021
         static void Main(string[] args)
         {
             Console.WriteLine("Array Algorithms!");
-            TestHourGlassSum();
+            TestRotateArray();
             
             Console.ReadKey();
         }
@@ -19,5 +19,19 @@ namespace ArrayTestsQ1_2021
             sumManager.getSum();
 
         }
+
+        public static void TestRotateArray()
+        {
+            int rotations = 3;
+            int[] inputArray = new int[] { 1, 2, 3, 4, 5 };
+
+            RotateArrayLeft.RotateArrayLeft manager = new RotateArrayLeft.RotateArrayLeft(rotations, inputArray);
+            var rotList = manager.getRotatedArray();
+            for(int x=0; x < rotList.Length; x++)
+            {
+                Console.Write(rotList[x] + " ");
+            }
+
+
     }
 }
