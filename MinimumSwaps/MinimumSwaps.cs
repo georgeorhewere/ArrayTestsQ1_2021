@@ -85,15 +85,15 @@ namespace ArrayTestsQ1_2021
             for (i = 0; i < size - 1; i++)
             {
                 max = 0;
-                for (j = 1; j < size - 1 - i; j++)
+                for (j = 1; j < (size - 1) - i; j++)
                 {
                     if (selectionSortArray[j] > selectionSortArray[max])
                     {
                         max = j;
                     }
                 }
-                temp = selectionSortArray[size - 1 - i];
-                selectionSortArray[size - 1 - i] = selectionSortArray[max];
+                temp = selectionSortArray[(size - 1) - i];
+                selectionSortArray[(size - 1) - i] = selectionSortArray[max];
                 selectionSortArray[max] = temp;
                 numberOfSwaps++;
             }
@@ -161,6 +161,67 @@ namespace ArrayTestsQ1_2021
         }
 
         public int Swaps { get { return numberOfSwaps; }  }
+
+
+
+        public void MergeSort()
+        {
+            numberOfSwaps = 0;
+            int[] mergeSortArray = new int[sortArray.Length];
+            sortArray.CopyTo(mergeSortArray, 0);
+
+            int size = mergeSortArray.Length;
+            int[] tempArray = new int[size];
+
+            mergeSrt(mergeSortArray, tempArray, 0, size - 1);
+            mergeSortArray.ToList().ForEach(x => Console.Write(x + " "));
+            Console.WriteLine($"Minimum swaps with merge sort {Swaps}");
+        }
+
+        private void mergeSrt(int[] arr, int[] tempArray, int lowerIndex, int upperIndex)
+        {
+            if (lowerIndex >= upperIndex)
+            {
+                return;
+            }
+            int middleIndex = (lowerIndex + upperIndex) / 2;
+            mergeSrt(arr, tempArray, lowerIndex, middleIndex);
+            mergeSrt(arr, tempArray, middleIndex + 1, upperIndex);
+            merge(arr, tempArray, lowerIndex, middleIndex, upperIndex);
+        }
+
+        private void merge(int[] arr, int[] tempArray, int lowerIndex, int middleIndex, int upperIndex)
+        {
+            int lowerStart = lowerIndex;
+            int lowerStop = middleIndex;
+            int upperStart = middleIndex + 1;
+            int upperStop = upperIndex;
+            int count = lowerIndex;
+            while (lowerStart <= lowerStop && upperStart <= upperStop)
+            {
+                if (arr[lowerStart] < arr[upperStart])
+                {
+                    tempArray[count++] = arr[lowerStart++];
+                }
+                else
+                {
+                    tempArray[count++] = arr[upperStart++];
+                }
+            }
+            while (lowerStart <= lowerStop)
+            {
+                tempArray[count++] = arr[lowerStart++];
+            }
+            while (upperStart <= upperStop)
+            {
+                tempArray[count++] = arr[upperStart++];
+            }
+            for (int i = lowerIndex; i <= upperIndex; i++)
+            {
+                arr[i] = tempArray[i];                
+
+            }
+        }
 
     }
 }

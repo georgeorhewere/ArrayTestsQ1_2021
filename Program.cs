@@ -36,12 +36,13 @@ namespace ArrayTestsQ1_2021
 
         public static void TestMinimumSwaps()
         {
-            int[] inputArray = new int[] { 7,1,3 ,2,4,5, 6};
+            int[] inputArray = new int[] { 1, 3, 5, 2, 4, 6, 7 };
             MinimumSwaps swapManager = new MinimumSwaps(inputArray);
             swapManager.BubbleSort();
             swapManager.InsertionSort();
             swapManager.SelectionSort();
             swapManager.QuickSort();
+            swapManager.MergeSort();
             
             inputArray = new int[] { 4,3,1,2};
             swapManager = new MinimumSwaps(inputArray);
@@ -49,6 +50,7 @@ namespace ArrayTestsQ1_2021
             swapManager.InsertionSort();
             swapManager.SelectionSort();
             swapManager.QuickSort();
+            swapManager.MergeSort();
 
 
         }
