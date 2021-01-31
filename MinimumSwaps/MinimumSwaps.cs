@@ -19,23 +19,28 @@ namespace ArrayTestsQ1_2021
 
         public void BubbleSort()
         {
-            int size = sortArray.Length;
+            int[] bubbleSortArray = new int [sortArray.Length];
+            sortArray.CopyTo(bubbleSortArray,0);
+
+            int size = bubbleSortArray.Length;
 
             int i, j, temp;
             for (i = 0; i < (size - 1); i++)
             {
                 for (j = 0; j < size - i - 1; j++)
                 {
-                    if (more(sortArray[j], sortArray[j + 1]))
+                    if (more(bubbleSortArray[j], bubbleSortArray[j + 1]))
                     {
                         /* Swapping */
-                        temp = sortArray[j];
-                        sortArray[j] = sortArray[j + 1];
-                        sortArray[j + 1] = temp;
+                        temp = bubbleSortArray[j];
+                        bubbleSortArray[j] = bubbleSortArray[j + 1];
+                        bubbleSortArray[j + 1] = temp;
                         numberOfSwaps++;
                     }
                 }
             }
+
+            bubbleSortArray.ToList().ForEach(x => Console.Write(x + " "));
         }
 
         private bool less(int value1, int value2)
