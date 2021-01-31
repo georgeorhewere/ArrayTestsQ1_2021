@@ -103,6 +103,54 @@ namespace ArrayTestsQ1_2021
 
         }
 
+
+        public void QuickSort()
+        {
+            numberOfSwaps = 0;
+            int[] quickSortArray = new int[sortArray.Length];
+            sortArray.CopyTo(quickSortArray, 0);
+
+            int size = quickSortArray.Length;
+            QuickSortUtil(quickSortArray, 0, size - 1);
+            quickSortArray.ToList().ForEach(x => Console.Write(x + " "));
+            Console.WriteLine($"Minimum swaps with quick sort {Swaps}");
+        }
+        private void swap(int[] arr, int first, int second)
+        {
+            int temp = arr[first];
+            arr[first] = arr[second];
+            arr[second] = temp;
+            numberOfSwaps++;
+        }
+        private void QuickSortUtil(int[] arr, int lower, int upper)
+        {
+            if (upper <= lower)
+            {
+                return;
+            }
+            int pivot = arr[lower];
+            int start = lower;
+            int stop = upper;
+            while (lower < upper)
+            {
+                while (arr[lower] <= pivot && lower < upper)
+                {
+                    lower++;
+                }
+                while (arr[upper] > pivot && lower <= upper)
+                {
+                    upper--;
+                }
+                if (lower < upper)
+                {
+                    swap(arr, upper, lower);
+                }
+            }
+            swap(arr, upper, start); //upper is the pivot position
+            QuickSortUtil(arr, start, upper - 1); //pivot -1 is the upper for left sub array.
+            QuickSortUtil(arr, upper + 1, stop); // pivot + 1 is the lower for right sub array.
+        }
+
         private bool less(int value1, int value2)
         {
             return value1 < value2;

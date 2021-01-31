@@ -41,12 +41,14 @@ namespace ArrayTestsQ1_2021
             swapManager.BubbleSort();
             swapManager.InsertionSort();
             swapManager.SelectionSort();
+            swapManager.QuickSort();
             
             inputArray = new int[] { 4,3,1,2};
             swapManager = new MinimumSwaps(inputArray);
             swapManager.BubbleSort();
             swapManager.InsertionSort();
             swapManager.SelectionSort();
+            swapManager.QuickSort();
 
 
         }
