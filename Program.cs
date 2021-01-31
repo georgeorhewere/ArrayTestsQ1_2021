@@ -39,12 +39,14 @@ namespace ArrayTestsQ1_2021
             int[] inputArray = new int[] { 7,1,3 ,2,4,5, 6};
             MinimumSwaps swapManager = new MinimumSwaps(inputArray);
             swapManager.BubbleSort();
-            swapManager.insertionSort();
+            swapManager.InsertionSort();
+            swapManager.SelectionSort();
             
             inputArray = new int[] { 4,3,1,2};
             swapManager = new MinimumSwaps(inputArray);
             swapManager.BubbleSort();
-            swapManager.insertionSort();
+            swapManager.InsertionSort();
+            swapManager.SelectionSort();
 
 
         }

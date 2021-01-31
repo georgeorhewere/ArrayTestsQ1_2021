@@ -49,7 +49,7 @@ namespace ArrayTestsQ1_2021
             Console.WriteLine($"Minimum swaps with modified bubble sort {Swaps}");
         }
 
-        public void insertionSort()
+        public void InsertionSort()
         {
             numberOfSwaps = 0;
             int[] insertionSortArray = new int[sortArray.Length];
@@ -71,13 +71,37 @@ namespace ArrayTestsQ1_2021
             insertionSortArray.ToList().ForEach(x => Console.Write(x + " "));
             Console.WriteLine($"Minimum swaps with insertion sort {Swaps}");
 
-
-
-
         }
 
 
+        public void SelectionSort()
+        {
+            numberOfSwaps = 0;
+            int[] selectionSortArray = new int[sortArray.Length];
+            sortArray.CopyTo(selectionSortArray, 0);
 
+            int size = selectionSortArray.Length;
+            int i, j, max, temp;
+            for (i = 0; i < size - 1; i++)
+            {
+                max = 0;
+                for (j = 1; j < size - 1 - i; j++)
+                {
+                    if (selectionSortArray[j] > selectionSortArray[max])
+                    {
+                        max = j;
+                    }
+                }
+                temp = selectionSortArray[size - 1 - i];
+                selectionSortArray[size - 1 - i] = selectionSortArray[max];
+                selectionSortArray[max] = temp;
+                numberOfSwaps++;
+            }
+            selectionSortArray.ToList().ForEach(x => Console.Write(x + " "));
+            Console.WriteLine($"Minimum swaps with selection sort {Swaps}");
+
+
+        }
 
         private bool less(int value1, int value2)
         {
