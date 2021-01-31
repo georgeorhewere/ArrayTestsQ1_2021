@@ -25,8 +25,11 @@ namespace ArrayTestsQ1_2021
             int size = bubbleSortArray.Length;
 
             int i, j, temp;
-            for (i = 0; i < (size - 1); i++)
+            bool swapped = true;
+
+            for (i = 0; i < (size - 1) && swapped; i++)
             {
+                swapped = false;
                 for (j = 0; j < size - i - 1; j++)
                 {
                     if (more(bubbleSortArray[j], bubbleSortArray[j + 1]))
@@ -35,6 +38,7 @@ namespace ArrayTestsQ1_2021
                         temp = bubbleSortArray[j];
                         bubbleSortArray[j] = bubbleSortArray[j + 1];
                         bubbleSortArray[j + 1] = temp;
+                        swapped = true;
                         
                     }
                 }
@@ -42,6 +46,33 @@ namespace ArrayTestsQ1_2021
             }
 
             bubbleSortArray.ToList().ForEach(x => Console.Write(x + " "));
+            Console.WriteLine($"Minimum swaps with bubble sort {Swaps}");
+        }
+
+        public void insertionSort()
+        {
+            numberOfSwaps = 0;
+            int[] insertionSortArray = new int[sortArray.Length];
+            sortArray.CopyTo(insertionSortArray, 0);
+
+            int size = insertionSortArray.Length;
+            int temp, j;
+            for (int i = 1; i < size; i++)
+            {
+                temp = insertionSortArray[i];
+                for (j = i; j > 0 && more(insertionSortArray[j - 1], temp); j--)
+                {
+                    insertionSortArray[j] = insertionSortArray[j - 1];
+                }
+                insertionSortArray[j] = temp;
+            }
+
+            insertionSortArray.ToList().ForEach(x => Console.Write(x + " "));
+            Console.WriteLine($"Minimum swaps with insertion sort {Swaps}");
+
+
+
+
         }
 
 
