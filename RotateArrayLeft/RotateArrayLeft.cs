@@ -21,8 +21,12 @@ namespace ArrayTestsQ1_2021.RotateArrayLeft
         {
             int length = preRotateArray.Length - 1 ;
             // implementation with span
-            Span<int> rotateSpan = new Span<int>(preRotateArray, 0, numberOfRotations);
-            Span<int> newStartItems = new Span<int>(preRotateArray, numberOfRotations, preRotateArray.Length - numberOfRotations);
+            //Span<int> rotateSpan = new Span<int>(preRotateArray, 0, numberOfRotations);
+            //Span<int> newStartItems = new Span<int>(preRotateArray, numberOfRotations, preRotateArray.Length - numberOfRotations);
+
+            // list implementation
+            List<int> rotateSpan = new List<int>(preRotateArray.Take(numberOfRotations));
+            List<int> newStartItems = new List<int>(preRotateArray.Skip(numberOfRotations).Take(preRotateArray.Length - numberOfRotations));
 
             Console.WriteLine("Span content");
             //for (int i = 0; i < rotateSpan.Length; i++)

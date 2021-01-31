@@ -34,6 +34,15 @@ namespace ArrayTestsQ1_2021
         }
 
 
+        public static void TestMinimumSwaps()
+        {
+            int[] inputArray = new int[] { 7,1,3 ,2,4,5, 6};
+            MinimumSwaps swapManager = new MinimumSwaps(inputArray);
+            swapManager.BubbleSort();
+            Console.WriteLine($"Minimum swaps with bubble sort {swapManager.Swaps}");
+
+        }
+
 
     }
 }
