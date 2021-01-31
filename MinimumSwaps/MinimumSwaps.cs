@@ -46,7 +46,7 @@ namespace ArrayTestsQ1_2021
             }
 
             bubbleSortArray.ToList().ForEach(x => Console.Write(x + " "));
-            Console.WriteLine($"Minimum swaps with bubble sort {Swaps}");
+            Console.WriteLine($"Minimum swaps with modified bubble sort {Swaps}");
         }
 
         public void insertionSort()
@@ -65,6 +65,7 @@ namespace ArrayTestsQ1_2021
                     insertionSortArray[j] = insertionSortArray[j - 1];
                 }
                 insertionSortArray[j] = temp;
+                numberOfSwaps++;
             }
 
             insertionSortArray.ToList().ForEach(x => Console.Write(x + " "));
