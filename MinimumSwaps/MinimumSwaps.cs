@@ -12,13 +12,13 @@ namespace ArrayTestsQ1_2021
 
         public MinimumSwaps(int [] inputArray)
         {
-            sortArray = inputArray;
-            numberOfSwaps = 0;
+            sortArray = inputArray;         
         }
 
 
         public void BubbleSort()
         {
+            numberOfSwaps = 0;
             int[] bubbleSortArray = new int [sortArray.Length];
             sortArray.CopyTo(bubbleSortArray,0);
 
@@ -35,13 +35,17 @@ namespace ArrayTestsQ1_2021
                         temp = bubbleSortArray[j];
                         bubbleSortArray[j] = bubbleSortArray[j + 1];
                         bubbleSortArray[j + 1] = temp;
-                        numberOfSwaps++;
+                        
                     }
                 }
+                numberOfSwaps++;
             }
 
             bubbleSortArray.ToList().ForEach(x => Console.Write(x + " "));
         }
+
+
+
 
         private bool less(int value1, int value2)
         {

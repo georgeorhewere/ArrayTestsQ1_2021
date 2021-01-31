@@ -8,7 +8,7 @@ namespace ArrayTestsQ1_2021
         static void Main(string[] args)
         {
             Console.WriteLine("Array Algorithms!");
-            TestRotateArray();
+            TestMinimumSwaps();
             
             Console.ReadKey();
         }
